@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Aakb survey views feature.
+ */
+
+include_once 'aakb_survey_views.features.inc';
