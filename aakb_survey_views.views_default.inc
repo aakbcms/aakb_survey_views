@@ -69,12 +69,9 @@ function aakb_survey_views_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'survey-export';
-
-  /* Display: Data export */
-  $handler = $view->new_display('views_data_export', 'Data export', 'aakb_survey_cvs_export');
+  /* Display: CSV */
+  $handler = $view->new_display('views_data_export', 'CSV', 'aakb_survey_cvs_export');
+  $handler->display->display_options['display_description'] = 'User consent export';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -88,6 +85,17 @@ function aakb_survey_views_views_default_views() {
   $handler->display->display_options['style_options']['header'] = 0;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['path'] = 'admin/config/people/survey/export/%/csv';
+
+  /* Display: XLS */
+  $handler = $view->new_display('views_data_export', 'XLS', 'aakb_survey_xls_export');
+  $handler->display->display_options['display_description'] = 'User consent export';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_xls';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = '%timestamp-full_aakb.xls';
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['path'] = 'admin/config/people/survey/export/%/xls';
   $translatables['survey_export'] = array(
     t('Master'),
     t('Survey export'),
@@ -106,8 +114,9 @@ function aakb_survey_views_views_default_views() {
     t('last »'),
     t('Survey consent relationship'),
     t('All'),
-    t('Page'),
-    t('Data export'),
+    t('CSV'),
+    t('User consent export'),
+    t('XLS'),
   );
   $export['survey_export'] = $view;
 
