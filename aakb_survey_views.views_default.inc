@@ -38,13 +38,14 @@ function aakb_survey_views_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'aakb_survey';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Realname: Real name */
-  $handler->display->display_options['fields']['realname']['id'] = 'realname';
-  $handler->display->display_options['fields']['realname']['table'] = 'realname';
-  $handler->display->display_options['fields']['realname']['field'] = 'realname';
-  $handler->display->display_options['fields']['realname']['label'] = '';
-  $handler->display->display_options['fields']['realname']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['realname']['link_to_user'] = FALSE;
+  /* Field: Display name */
+  $handler->display->display_options['fields']['data']['id'] = 'data';
+  $handler->display->display_options['fields']['data']['table'] = 'users';
+  $handler->display->display_options['fields']['data']['field'] = 'data';
+  $handler->display->display_options['fields']['data']['ui_name'] = 'Display name';
+  $handler->display->display_options['fields']['data']['label'] = 'Name';
+  $handler->display->display_options['fields']['data']['format'] = 'key';
+  $handler->display->display_options['fields']['data']['key'] = 'display_name';
   /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
@@ -113,6 +114,7 @@ function aakb_survey_views_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Survey consent relationship'),
+    t('Name'),
     t('All'),
     t('CSV'),
     t('User consent export'),
