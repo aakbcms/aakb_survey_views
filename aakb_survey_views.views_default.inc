@@ -44,13 +44,14 @@ function aakb_survey_views_views_default_views() {
   $handler->display->display_options['fields']['data']['field'] = 'data';
   $handler->display->display_options['fields']['data']['ui_name'] = 'Display name';
   $handler->display->display_options['fields']['data']['label'] = 'Name';
+  $handler->display->display_options['fields']['data']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['data']['format'] = 'key';
   $handler->display->display_options['fields']['data']['key'] = 'display_name';
   /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
-  $handler->display->display_options['fields']['mail']['label'] = '';
+  $handler->display->display_options['fields']['mail']['label'] = 'Mail';
   $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
   /* Contextual filter: Aakb survey: Consent */
@@ -79,12 +80,14 @@ function aakb_survey_views_views_default_views() {
   $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['filename'] = '%timestamp-full_aakb.csv';
   $handler->display->display_options['style_options']['parent_sort'] = 0;
-  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['separator'] = ';';
+  $handler->display->display_options['style_options']['quote'] = 0;
   $handler->display->display_options['style_options']['trim'] = 1;
   $handler->display->display_options['style_options']['replace_newlines'] = 0;
   $handler->display->display_options['style_options']['newline_token'] = '1';
-  $handler->display->display_options['style_options']['header'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['style_options']['encoding'] = 'ISO-8859-1';
   $handler->display->display_options['path'] = 'admin/config/people/survey/export/%/csv';
 
   /* Display: XLS */
@@ -115,6 +118,7 @@ function aakb_survey_views_views_default_views() {
     t('last »'),
     t('Survey consent relationship'),
     t('Name'),
+    t('Mail'),
     t('All'),
     t('CSV'),
     t('User consent export'),
